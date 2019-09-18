@@ -12,7 +12,7 @@ public interface BookService {
 
 	List<Book> list();
 
-	void update(long id, Book book);
+	Object update(long id, Book book);
 
 	void delete(long id);
 }

@@ -2,40 +2,57 @@ package com.silicus.librabrymanagment.daoimpl;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.silicus.librabrymanagment.dao.BookDao;
 import com.silicus.librabrymanagment.entity.Book;
 
-public class BookDaoIImpl implements BookDao{
+@Repository
+public class BookDaoIImpl implements BookDao {
 
 	@Autowired
 	private SessionFactory factory;
-	
+
 	public void save(Book book) {
-	
+
 		factory.getCurrentSession().save(book);
+		System.out.println("Book saved successfully..!" + book.toString());
 	}
 
 	public Book get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Book) factory.getCurrentSession().get(Book.class, id);
 	}
 
 	public List<Book> list() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session session = factory.getCurrentSession();
+		List bookList = session.createCriteria(Book.class).list();
+		return bookList;
+
 	}
 
-	public void update(long id, Book book) {
-		// TODO Auto-generated method stub
-		
+	public Object update(long id, Book book) {
+		Session session = factory.getCurrentSession();
+		Book book1 = (Book) session.byId(Book.class).load(id);
+		book1.setAuthor(book.getAuthor());
+		book1.setAvailable(book.isAvailable());
+		book1.setId(book.getId());
+		book1.setName(book.getName());
+		book1.setRackName(book.getRackName());
+		book1.setISBN(book.getISBN());
+		session.flush();
+		return book1;
+
 	}
 
 	public void delete(long id) {
-		// TODO Auto-generated method stub
-		
+		Session session = factory.getCurrentSession();
+		Book book = (Book) session.byId(Book.class);
+		session.delete(book);
+
 	}
 
 }

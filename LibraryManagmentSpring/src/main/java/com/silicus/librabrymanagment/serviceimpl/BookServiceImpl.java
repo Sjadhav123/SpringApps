@@ -3,11 +3,13 @@ package com.silicus.librabrymanagment.serviceimpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.silicus.librabrymanagment.daoimpl.BookDaoIImpl;
 import com.silicus.librabrymanagment.entity.Book;
 import com.silicus.librabrymanagment.service.BookService;
 
+@Service
 public class BookServiceImpl implements BookService {
 
 	@Autowired
@@ -18,22 +20,23 @@ public class BookServiceImpl implements BookService {
 	}
 
 	public Book get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return bookDaoIImpl.get(id);
+		
 	}
 
 	public List<Book> list() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return bookDaoIImpl.list();
 	}
 
-	public void update(long id, Book book) {
-		// TODO Auto-generated method stub
+	public Object update(long id, Book book) {
+		return bookDaoIImpl.update(id, book);
+		
 		
 	}
 
 	public void delete(long id) {
-		// TODO Auto-generated method stub
+		bookDaoIImpl.delete(id);
 		
 	}
 
