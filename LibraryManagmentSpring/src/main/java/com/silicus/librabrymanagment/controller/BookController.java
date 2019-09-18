@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.silicus.librabrymanagment.entity.Book;
 import com.silicus.librabrymanagment.service.BookService;
-
+//save the record
 @RestController
 public class BookController {
-
+//saved
 	@Autowired
 	private BookService bookService;
 	
