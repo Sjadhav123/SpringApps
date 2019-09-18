@@ -11,33 +11,33 @@ import com.silicus.librabrymanagment.service.BookService;
 
 @Service
 public class BookServiceImpl implements BookService {
-
+	
 	@Autowired
 	private BookDaoIImpl bookDaoIImpl;
-	
+
 	public void save(Book book) {
-		 bookDaoIImpl.save(book);
+		bookDaoIImpl.save(book);
 	}
 
 	public Book get(long id) {
+
 		return bookDaoIImpl.get(id);
-		
+
 	}
 
 	public List<Book> list() {
-		
+
 		return bookDaoIImpl.list();
 	}
 
 	public Object update(long id, Book book) {
 		return bookDaoIImpl.update(id, book);
-		
-		
+
 	}
 
 	public void delete(long id) {
 		bookDaoIImpl.delete(id);
-		
+
 	}
 
 }
