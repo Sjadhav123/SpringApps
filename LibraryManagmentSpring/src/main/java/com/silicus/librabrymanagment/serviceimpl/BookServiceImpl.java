@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.silicus.librabrymanagment.daoimpl.BookDaoIImpl;
+import com.silicus.librabrymanagment.dao.BookDao;
 import com.silicus.librabrymanagment.entity.Book;
 import com.silicus.librabrymanagment.service.BookService;
 
@@ -13,30 +13,30 @@ import com.silicus.librabrymanagment.service.BookService;
 public class BookServiceImpl implements BookService {
 	
 	@Autowired
-	private BookDaoIImpl bookDaoIImpl;
+	private BookDao bookDao;
 
 	public void save(Book book) {
-		bookDaoIImpl.save(book);
+		bookDao.save(book);
 	}
 
 	public Book get(long id) {
 
-		return bookDaoIImpl.get(id);
+		return bookDao.get(id);
 
 	}
 
 	public List<Book> list() {
 
-		return bookDaoIImpl.list();
+		return bookDao.list();
 	}
 
 	public Object update(long id, Book book) {
-		return bookDaoIImpl.update(id, book);
+		return bookDao.update(id, book);
 
 	}
 
 	public void delete(long id) {
-		bookDaoIImpl.delete(id);
+		bookDao.delete(id);
 
 	}
 

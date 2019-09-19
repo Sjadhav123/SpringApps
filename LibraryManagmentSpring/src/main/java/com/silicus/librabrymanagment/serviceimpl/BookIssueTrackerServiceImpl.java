@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.silicus.librabrymanagment.dao.BookIssueTrackerDao;
 import com.silicus.librabrymanagment.daoimpl.BookIssueTrackerDaoImpl;
 import com.silicus.librabrymanagment.entity.BookIssueTracker;
 import com.silicus.librabrymanagment.service.BookIssueTrackerService;
@@ -13,10 +14,10 @@ import com.silicus.librabrymanagment.service.BookIssueTrackerService;
 public class BookIssueTrackerServiceImpl implements BookIssueTrackerService {
 
 	@Autowired
-	private BookIssueTrackerDaoImpl bookIssueTrackerDaoImpl;
+	private BookIssueTrackerDao bookIssueTrackerDao;
 	
 	public void save(BookIssueTracker bookIssueTracker) {
-		 bookIssueTrackerDaoImpl.save(bookIssueTracker);
+		bookIssueTrackerDao.save(bookIssueTracker);
 
 	}
 

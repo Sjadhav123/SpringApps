@@ -1,6 +1,9 @@
 package com.silicus.librabrymanagment.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class User {
@@ -11,6 +14,8 @@ public class User {
 		return "User [id=" + id + ", name=" + name + ", roleId=" + roleId + ", email=" + email + ", phoneNumber="
 				+ phoneNumber + "]";
 	}
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String roleId;

@@ -1,5 +1,6 @@
 package com.silicus.librabrymanagment.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,15 +12,21 @@ import javax.persistence.Table;
 public class Book {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="Id", nullable = false)
 	private long id;
+	@Column(name="Name", nullable = false)
 	private String name;
+	@Column(name="Author", nullable = false)
 	private String author;
+	@Column(name="Isbn", nullable = false)
 	private String ISBN;
+	@Column(name="RackName", nullable = false)
 	private String rackName;
+	@Column(name="IsAvailable", nullable = false)
 	private boolean isAvailable;
 	
-	
 	public long getId() {
+		
 		return id;
 	}
 	public void setId(long id) {

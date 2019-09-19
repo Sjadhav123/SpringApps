@@ -1,6 +1,12 @@
 package com.silicus.librabrymanagment.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class BookIssueTracker {
@@ -10,11 +16,19 @@ public class BookIssueTracker {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="Id", nullable = false)
 	private int id;
+	@OneToOne(targetEntity=Book.class,cascade=CascadeType.ALL)
 	private Book book;
+	@OneToOne(targetEntity=User.class,cascade=CascadeType.ALL)
 	private User user;
+	@Column(name="DateOfIssue", nullable = false)
 	private String dateOfIssue;
+	@Column(name="ExpDate", nullable = false)
 	private String expDate;
+	@Column(name="Issuer", nullable = false)
 	private String issuer;
 
 	public int getId() {
