@@ -22,7 +22,7 @@ public class BookIssueTrackerServiceImpl implements BookIssueTrackerService {
 	}
 
 	public BookIssueTracker get(long id) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 

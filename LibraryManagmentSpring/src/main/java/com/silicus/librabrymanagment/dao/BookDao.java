@@ -2,10 +2,12 @@ package com.silicus.librabrymanagment.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.silicus.librabrymanagment.entity.Book;
 
 
-
+@Repository
 public interface BookDao {
 
 	  void save(Book book);

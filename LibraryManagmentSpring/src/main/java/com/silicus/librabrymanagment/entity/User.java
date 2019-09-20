@@ -1,27 +1,29 @@
 package com.silicus.librabrymanagment.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="USER")
 public class User {
 
-	private static final long serialVersionUID = 1L;
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", roleId=" + roleId + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + "]";
-	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@Column(name="Id", nullable = false)
+	private long id;
+	@Column(name="name", nullable = false)
 	private String name;
+	@Column(name="roleId", nullable = false)
 	private String roleId;
+	@Column(name="email", nullable = false)
 	private String email;
+	@Column(name="phoneNumber", nullable = false)
 	private String phoneNumber;
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -51,12 +53,18 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", roleId=" + roleId + ", email=" + email + ", phoneNumber="
+				+ phoneNumber + "]";
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + id;
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
 		result = prime * result + ((roleId == null) ? 0 : roleId.hashCode());
@@ -95,7 +103,6 @@ public class User {
 			return false;
 		return true;
 	}
-	
 	
 	
 	
