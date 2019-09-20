@@ -26,7 +26,7 @@ public class BookController {
 	}
 	
 	
-	@RequestMapping(value="/getBook",method=RequestMethod.GET)
+	@RequestMapping(value="/getBook/{id}",method=RequestMethod.GET)
 	public Book getBook(@PathVariable("id")long id){
 		return bookService.get(id);
 	}
@@ -37,13 +37,13 @@ public class BookController {
 		return bookService.list();
 	}
 	
-	@RequestMapping(value="/updateBook",method=RequestMethod.PUT)
+	@RequestMapping(value="/updateBook/{id}",method=RequestMethod.PUT)
 	public Object updateBook(@PathVariable("id") long id, @RequestBody Book book){
 		return bookService.update(id,book);
 	}
 	
 	
-	@RequestMapping(value="/deleteBook",method=RequestMethod.DELETE)
+	@RequestMapping(value="/deleteBook/{id}",method=RequestMethod.DELETE)
 	public void deleteBook(@PathVariable("id") long id){
 		bookService.delete(id);
 		

@@ -55,7 +55,7 @@ public class BookDaoIImpl implements BookDao {
 
 	public void delete(long id) {
 		Session session = sessionFactory.getCurrentSession();
-		Book book = (Book) session.byId(Book.class);
+		Book book = (Book) session.byId(Book.class).load(id);
 		session.delete(book);
 
 	}
